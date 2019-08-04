@@ -12,7 +12,7 @@ public class KnapSack {
 	private static int countKnapsackValue(int[] wt, int[] val, int W) {
 		int N= wt.length;
 		
-		int[][] K= new int[N+1][W+1];
+		int[][] K= new int[N][W+1];
 		for(int i=0;i < N;i++)
 		{
 			for(int w=0;w<=W;w++)
@@ -24,6 +24,13 @@ public class KnapSack {
 				 else   K[i][w]=K[i-1][w]; 
 			 }
 			}
+		}
+		for(int i=0; i< N; i++) {
+			for(int j=0; j< W+1;j++) {
+				System.out.print(K[i][j]+" ");
+				
+			}
+			System.out.println();
 		}
 		return K[N-1][W];
 	}
